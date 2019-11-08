@@ -1,0 +1,20 @@
+@import '../colors.scss';
+
+.social-wrapper {
+  display: flex;
+
+  .social-item {
+    margin-right: 10px;
+
+    &:hover {
+      .icon {
+        height: 1.8rem;
+
+        &.filled svg,
+        &.filled path {
+          background: $primary-color;
+        }
+      }
+    }
+  }
+}

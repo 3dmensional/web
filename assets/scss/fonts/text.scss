@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+@import '../colors';
+
+@font-face {
+  font-family: "Enter the Grid";
+  src: url('~/assets/fonts/Enter the Grid 2.otf');
+}
+
+@font-face {
+  font-family: "Kalam";
+  src: url('~/assets/fonts/Kalam-Regular.ttf');
+}
+
+* {
+  font-family: 'Roboto', Arial, sans-serif, Helvetica;
+  font-weight: 400;
+}
+
+h1 {
+  font-family: "Enter the grid";
+  color: black;
+}
+
+.handmade-font {
+  font-family: "Kalam", Arial, Helvetica, sans-serif;
+  color: $tertiary-color;
+}

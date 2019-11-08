@@ -1,0 +1,23 @@
+@import '../colors.scss';
+
+.icon {
+  min-height: 1.5rem;
+  min-width: 1.5rem;
+
+  & > div {
+    height: 100%;
+    width: 100%;
+  }
+
+  svg,
+  svg path {
+    fill: $primary-color;
+    background: $secondary-color;
+  }
+
+  &.filled svg,
+  &.filled svg path {
+    fill: $secondary-color;
+    background: $primary-color;
+  }
+}

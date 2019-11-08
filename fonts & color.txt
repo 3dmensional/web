@@ -1,0 +1,21 @@
+Enter the Grid 2 - Titulos
+Roboto - Formulario
+Segoe Script - Manual
+
+Colores:
+
+Negro: #000000
+Azul: #637FFF
+Blanco: #FFFFFF
+
+Hexágonos:
+
+#D8D8D8
+#C6C6C6
+#ADADAD
+#969696
+#6D6D6D
+
+Hexágono con Imagen:
+#E6E6E6
+#CACACA

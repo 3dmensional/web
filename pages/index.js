@@ -1,88 +1,61 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Head from 'next/head'
-import Nav from '../components/nav'
+import Modal from 'react-bootstrap/Modal'
+import Footer from '../components/footer'
+import Icon from '../components/icon'
 
-const Home = () => (
-  <div>
-    <Head>
-      <title>Home</title>
-      <link rel='icon' href='/favicon.ico' />
-    </Head>
+import '../assets/scss/index.scss'
+import '../assets/scss/components/modal.scss'
+import '../assets/scss/bootstrap/scss/bootstrap.scss'
 
-    <Nav />
+import sectionsContent from '../sections-content.json'
 
-    <div className='hero'>
-      <h1 className='title'>Welcome to Next.js!</h1>
-      <p className='description'>
-        To get started, edit <code>pages/index.js</code> and save to reload.
-      </p>
+const Home = () => {
 
-      <div className='row'>
-        <a href='https://nextjs.org/docs' className='card'>
-          <h3>Documentation &rarr;</h3>
-          <p>Learn more about Next.js in the documentation.</p>
-        </a>
-        <a href='https://nextjs.org/learn' className='card'>
-          <h3>Next.js Learn &rarr;</h3>
-          <p>Learn about Next.js by following an interactive tutorial!</p>
-        </a>
-        <a
-          href='https://github.com/zeit/next.js/tree/master/examples'
-          className='card'
-        >
-          <h3>Examples &rarr;</h3>
-          <p>Find other example boilerplates on the Next.js GitHub.</p>
-        </a>
-      </div>
+  const [section, setSection] = useState(null)
+
+  return (
+    <div>
+      <Head>
+        <title>3Dmensional - Marketing agency and IT solutions</title>
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
+
+      { console.log(sectionsContent) }
+
+      <Modal
+        dialogClassName="section-modal"
+        show={section !== null}
+        onHide={e => setSection(null)}
+      >
+        <Modal.Body>
+          <div className="iconContainer">
+            {
+              section && sectionsContent[section].tags.map(tag => (
+                <h2 className="handmade-font" key={tag.label}>{tag.label}</h2>
+              ))
+            }
+            <Icon
+              name={section && section.charAt(0).toUpperCase() + section.slice(1)}
+              size="20vw"
+            />
+          </div>
+          <div className="content-wrapper">
+            <h1>{ section }</h1>
+            <div className="content-container" dangerouslySetInnerHTML={{
+              __html: section && sectionsContent[section].content
+            }}/>
+          </div>
+        </Modal.Body>
+      </Modal>
+
+      <button onClick={e => setSection("development")}>Development</button>
+      <button onClick={e => setSection("design")}>Design</button>
+      <button onClick={e => setSection("marketing")}>Marketing</button>
+
+      <Footer />
     </div>
-
-    <style jsx>{`
-      .hero {
-        width: 100%;
-        color: #333;
-      }
-      .title {
-        margin: 0;
-        width: 100%;
-        padding-top: 80px;
-        line-height: 1.15;
-        font-size: 48px;
-      }
-      .title,
-      .description {
-        text-align: center;
-      }
-      .row {
-        max-width: 880px;
-        margin: 80px auto 40px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-      }
-      .card {
-        padding: 18px 18px 24px;
-        width: 220px;
-        text-align: left;
-        text-decoration: none;
-        color: #434343;
-        border: 1px solid #9b9b9b;
-      }
-      .card:hover {
-        border-color: #067df7;
-      }
-      .card h3 {
-        margin: 0;
-        color: #067df7;
-        font-size: 18px;
-      }
-      .card p {
-        margin: 0;
-        padding: 12px 0 0;
-        font-size: 13px;
-        color: #333;
-      }
-    `}</style>
-  </div>
-)
+  )
+}
 
 export default Home

@@ -1,0 +1,37 @@
+.section-modal {
+  width: 85vw;
+  max-width: 85vw !important;
+
+  .modal-content {
+    height: calc(100vh - (1.75rem) * 2);
+  }
+
+  .modal-body {
+    display: flex;
+    justify-content: space-between;
+
+    h1 {
+      text-align: center;
+    }
+  }
+
+  .content {
+    &-wrapper {
+      padding: 1rem;
+      width: 40%;
+    }
+
+    &-container {
+      padding: 1rem;
+      background: linear-gradient(to bottom right, #bac2ce, #e2e2e2);
+    }
+  }
+
+  .iconContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 60%;
+  }
+}
